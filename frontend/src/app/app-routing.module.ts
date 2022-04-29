@@ -9,6 +9,7 @@ import {ShowEventComponent} from "./show-event/show-event.component";
 import {ForumContainerComponent} from "./forum/forum-container/forum-container.component";
 import {ForumPostComponent} from "./forum/forum-post/forum-post.component";
 
+
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'Login', component: LoginComponent},
@@ -18,7 +19,9 @@ const routes: Routes = [
   {path: '', redirectTo: 'Login', pathMatch: 'full'},
   {path: 'forum', component: ForumContainerComponent},
   {path: 'forum/view/**', component: ForumPostComponent},
+
   {path: "**", component: NotFoundComponent},
+
 
 ];
 
