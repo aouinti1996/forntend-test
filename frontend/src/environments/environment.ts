@@ -7,6 +7,7 @@ export const environment = {
   tomtom: {
     key: 'POQwSkANG2wVgN1qMbook38s5EMkN7pG',
   },
+  apiUrl: "localhost:8089/WellCo"
 };
 
 /*
