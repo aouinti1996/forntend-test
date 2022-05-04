@@ -14,8 +14,8 @@ export class PostService {
 
   constructor(private http:HttpClient) { }
 
-  public createPost(post:Post) : Observable<Post> {
-    return this.http.post<Post>(`${this.host}/api/posts/add`,post,this.httpOptions)
+  public createPost(description:string) : Observable<Post> {
+    return this.http.post<Post>(`${this.host}/api/posts/add`,description,this.httpOptions)
   }
 
   public getAllPosts(): Observable<Post[]> {
@@ -48,5 +48,9 @@ export class PostService {
 
   public sharePost(userId:number,postId:number): Observable<Post> {
     return this.http.post<Post>(`${this.host}/api/posts/share/${userId}/${postId}`,this.getPost(postId),this.httpOptions)
+  }
+
+  public deletePost(postId: number): Observable<Post> {
+    return this.http.delete<Post>(`${this.host}/api/posts/delete/${postId}`)
   }
 }

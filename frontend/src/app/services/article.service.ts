@@ -39,4 +39,8 @@ export class ArticleService {
   public shareArticle(userId:number,articleId:number): Observable<Article> {
     return this.http.post<Article>(`${this.host}/api/articles/share/${userId}/${articleId}`,this.getArticle(articleId),this.httpOptions)
   }
+
+  public deleteArticle(articleId:number): Observable<Article> {
+    return this.http.delete<Article>(`${this.host}/api/articles/remove/${articleId}`)
+  }
 }

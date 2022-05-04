@@ -1,11 +1,11 @@
 export class Post {
 
-  private  postId:number;
-  private  description:string;
-  private  likes:number;
-  private  dislikes:number;
-  private  createdDate:Date;
-  private  creator:string;
+    postId:number;
+    description:string;
+    likes:number;
+    dislikes:number;
+    createdDate:Date;
+    creator:string;
 
 
   constructor(postId: number, description: string, likes: number, dislikes: number, createdDate: Date, creator: string) {
