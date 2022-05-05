@@ -1,0 +1,18 @@
+<div class="post-comment-box">
+
+  <div class="user-poster">
+    <div class="usr-post-img">
+      <img src="http://via.placeholder.com/40x40" alt="">
+    </div>
+    <div class="post_comment_sec">
+      <form>
+        <textarea placeholder="Your Comment" name="content"
+                  [(ngModel)]="content"
+                  required #logement="ngModel"
+                  class="form-control"></textarea>
+        <button type="submit" (click)="postComment(postId,content)">Post Comment</button>
+        {{content}}
+      </form>
+    </div><!--post_comment_sec end-->
+  </div><!--user-poster end-->
+</div>

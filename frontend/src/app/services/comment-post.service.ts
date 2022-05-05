@@ -33,4 +33,8 @@ export class CommentPostService {
   public deleteComment(commentId:number): Observable<CommentPost> {
     return this.http.delete<CommentPost>(`${this.host}/api/commentPost/${commentId}`)
   }
+
+  public getCommentsByPostId(postId:number): Observable<CommentPost[]> {
+    return this.http.get<CommentPost[]>(`${this.host}/api/commentPost/byPostId/${postId}`)
+  }
 }

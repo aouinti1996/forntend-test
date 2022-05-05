@@ -19,6 +19,8 @@ import { ForumCardComponent } from './forum/forum-card/forum-card.component';
 import { ForumPostComponent } from './forum/forum-post/forum-post.component';
 import { ForumPostModalComponent } from './forum/forum-post-modal/forum-post-modal.component';
 import { NotificationComponent } from './notification/notification.component';
+import { CommentContainerComponent } from './home/comment-container/comment-container.component';
+import { CommentBoxComponent } from './home/comment-box/comment-box.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +36,9 @@ import { NotificationComponent } from './notification/notification.component';
         ForumCardComponent,
         ForumPostComponent,
         ForumPostModalComponent,
-        NotificationComponent
+        NotificationComponent,
+        CommentContainerComponent,
+        CommentBoxComponent
     ],
     imports: [
         BrowserModule,

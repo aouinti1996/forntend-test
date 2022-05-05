@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, observable} from "rxjs";
 import {Event} from "../model/Event";
 import {Office} from "../model/Office";
@@ -12,7 +12,8 @@ import {EventType} from "../model/Enums/eventType";
   providedIn: 'root'
 })
 export class EventService {
-
+  httpOptions = { headers: new HttpHeaders({
+      'Content-Type': 'application/json'})}
 
   constructor( private http : HttpClient) {
 
@@ -98,7 +99,7 @@ export class EventService {
   }
 
   addOffice(office : Office): Observable<Office>{
-    return this.http.post<Office>("http://localhost:8089/WellCo/Event/addOffice", office);
+    return this.http.post<Office>("http://localhost:8089/WellCo/Event/addOffice", office,this.httpOptions);
   }
 
 }

@@ -105,14 +105,14 @@
                   </ul>
                 </div><!--post-st end-->
               </div><!--post-topbar end-->
-              <div class="posts-section" *ngFor="let post of posts">
-                <div class="post-bar">
+              <div class="posts-section" >
+                <div class="post-bar" *ngFor="let post of posts">
                   <div class="post_topbar">
                     <div class="usy-dt">
                       <img src="https://via.placeholder.com/50x50" alt="">
                       <div class="usy-name">
                         <h3>John Doe</h3>
-                        <span><img src="assets/images/clock.png" alt="">3 min ago</span>
+                        <span><img src="assets/images/clock.png" alt="">{{post.createdDate|date:"short"}}</span>
                       </div>
                     </div>
                     <div class="ed-opts">
@@ -140,9 +140,12 @@
                         <img src="assets/images/liked-img.png" alt="">
                         <span>25</span>
                       </li>
-                      <li><a href="#" title="" class="com"><img src="assets/images/com.png" alt=""> Comment 15</a></li>
+                      <li><a href="#" title="" class="com"><img src="assets/images/com.png" alt=""> Comment</a></li>
                     </ul>
+
                   </div>
+                 <app-comment-container [postId] = post.postId ></app-comment-container>
+                  <app-comment-box [postId] = post.postId></app-comment-box>
                 </div><!--post-bar end-->
 
                 <!--process-comm end-->
@@ -154,88 +157,34 @@
 
               <div class="widget widget-jobs">
                 <div class="sd-title">
-                  <h3>Top Jobs</h3>
+                  <h3>Top Events</h3>
                   <i class="la la-ellipsis-v"></i>
                 </div>
                 <div class="jobs-list">
-                  <div class="job-info">
+                  <div class="job-info" *ngFor="let event of events">
                     <div class="job-details">
-                      <h3>Senior Product Designer</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                      <h3>{{ event.name}}</h3>
+                      <p>{{event.description}}</p>
                     </div>
                     <div class="hr-rate">
-                      <span>$25/hr</span>
-                    </div>
-                  </div><!--job-info end-->
-                  <div class="job-info">
-                    <div class="job-details">
-                      <h3>Senior UI / UX Designer</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                    </div>
-                    <div class="hr-rate">
-                      <span>$25/hr</span>
-                    </div>
-                  </div><!--job-info end-->
-                  <div class="job-info">
-                    <div class="job-details">
-                      <h3>Junior Seo Designer</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                    </div>
-                    <div class="hr-rate">
-                      <span>$25/hr</span>
-                    </div>
-                  </div><!--job-info end-->
-                  <div class="job-info">
-                    <div class="job-details">
-                      <h3>Senior PHP Designer</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                    </div>
-                    <div class="hr-rate">
-                      <span>$25/hr</span>
-                    </div>
-                  </div><!--job-info end-->
-                  <div class="job-info">
-                    <div class="job-details">
-                      <h3>Senior Developer Designer</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                    </div>
-                    <div class="hr-rate">
-                      <span>$25/hr</span>
+                      <span>{{event.eventType}}</span>
                     </div>
                   </div><!--job-info end-->
                 </div><!--jobs-list end-->
               </div><!--widget-jobs end-->
               <div class="widget widget-jobs">
                 <div class="sd-title">
-                  <h3>Most Viewed This Week</h3>
+                  <h3>Articles List</h3>
                   <i class="la la-ellipsis-v"></i>
                 </div>
                 <div class="jobs-list">
-                  <div class="job-info">
+                  <div class="job-info" *ngFor="let article of articles">
                     <div class="job-details">
-                      <h3>Senior Product Designer</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                      <h3>{{article.articleName}}</h3>
+                      <h4>{{article.userName}}</h4>
                     </div>
                     <div class="hr-rate">
-                      <span>$25/hr</span>
-                    </div>
-                  </div><!--job-info end-->
-                  <div class="job-info">
-                    <div class="job-details">
-                      <h3>Senior UI / UX Designer</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                    </div>
-                    <div class="hr-rate">
-                      <span>$25/hr</span>
-                    </div>
-                  </div><!--job-info end-->
-                  <div class="job-info">
-                    <div class="job-details">
-                      <h3>Junior Seo Designer</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                    </div>
-                    <div class="hr-rate">
-                      <span>$25/hr</span>
+                      <span>{{article.categoryName}}</span>
                     </div>
                   </div><!--job-info end-->
                 </div><!--jobs-list end-->
