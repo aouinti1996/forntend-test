@@ -14,12 +14,15 @@ export class PostService {
 
   constructor(private http:HttpClient) { }
 
-  public createPost(description:string) : Observable<Post> {
-    return this.http.post<Post>(`${this.host}/api/posts/add`,description,this.httpOptions)
+  public createPost(post:string, file : File) : Observable<Post> {
+    const data : FormData = new FormData();
+    data.append('post', post);
+    data.append('file', file);
+    return this.http.post<Post>(`${this.host}/api/posts/add`,data)
   }
 
   public getAllPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.host}/api/posts`)
+    return this.http.get<Post[]>(`${this.host}/api/posts/list`)
   }
 
   public getPost(postId:number): Observable<Post> {

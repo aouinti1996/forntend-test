@@ -12,6 +12,7 @@ export class CommentContainerComponent implements OnInit {
   @Input() postId!: number
   comments:CommentPost[] = []
 
+
   constructor(private commentPostService: CommentPostService) { }
 
   ngOnInit(): void {
@@ -22,5 +23,10 @@ export class CommentContainerComponent implements OnInit {
     this.commentPostService.getCommentsByPostId(idPost).subscribe( (res: CommentPost[]) =>
       this.comments = res
     )
+  }
+
+  deleteCommentPost(commentId: number) {
+    this.commentPostService.deleteComment(commentId).subscribe()
+    window.location.reload()
   }
 }

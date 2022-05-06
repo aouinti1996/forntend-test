@@ -21,6 +21,7 @@ import { ForumPostModalComponent } from './forum/forum-post-modal/forum-post-mod
 import { NotificationComponent } from './notification/notification.component';
 import { CommentContainerComponent } from './home/comment-container/comment-container.component';
 import { CommentBoxComponent } from './home/comment-box/comment-box.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
     declarations: [
@@ -46,6 +47,7 @@ import { CommentBoxComponent } from './home/comment-box/comment-box.component';
         AppRoutingModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        ToastrModule.forRoot(),
         MatDialogModule,
     ],
     providers: [],

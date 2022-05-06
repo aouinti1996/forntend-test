@@ -12,7 +12,15 @@
               <h3>{{comment.id}}</h3>
               <span><img src="assets/images/clock.png" alt=""> {{comment.createdDate | date:"short"}}</span>
               <p>{{comment.text}}</p>
+              <div class="ed-opts">
+                <a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
+                <ul class="ed-options">
+
+                  <li><a routerLink="/home" title="" (click)="deleteCommentPost(comment.id)">Delete Comment</a></li>
+                </ul>
+              </div>
             </div>
+
           </div>
         </div><!--comment-list end-->
       </li>

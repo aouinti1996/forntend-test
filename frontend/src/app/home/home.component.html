@@ -113,6 +113,7 @@
                       <div class="usy-name">
                         <h3>John Doe</h3>
                         <span><img src="assets/images/clock.png" alt="">{{post.createdDate|date:"short"}}</span>
+                        <img src="{{'http://localhost:8089/WellCo/api/posts/imagePost/'+post.postId}}" class="card-img-top" alt="...">
                       </div>
                     </div>
                     <div class="ed-opts">
@@ -120,9 +121,6 @@
                       <ul class="ed-options">
                         <li><a href="#" title="">Edit Post</a></li>
                         <li><a routerLink="/home" title="" (click)="deletePost(post.postId)">Delete Post</a></li>
-                        <li><a href="#" title="">Unbid</a></li>
-                        <li><a href="#" title="">Close</a></li>
-                        <li><a href="#" title="">Hide</a></li>
                       </ul>
                     </div>
                   </div>
@@ -138,7 +136,7 @@
                       <li>
                         <a href="#"><i class="la la-heart"></i> Like</a>
                         <img src="assets/images/liked-img.png" alt="">
-                        <span>25</span>
+                        <span>{{post.likes}}</span>
                       </li>
                       <li><a href="#" title="" class="com"><img src="assets/images/com.png" alt=""> Comment</a></li>
                     </ul>
@@ -207,34 +205,37 @@
   <div class="post-project">
     <h3>New Post</h3>
     <div class="post-project-fields">
-      <form #addPostForm="ngForm" >
+      <form #addPostForm="ngForm" id="savePost" >
         <div class="row">
 
           <div class="col-lg-12">
             <textarea #descriptionPost="ngModel"
                    type="textarea"  name="description"
                    placeholder="Description"
-                   [(ngModel)]="description"
+                   [(ngModel)]="post.description"
                    class="form-control"
                    rows="3"
 
             ></textarea>
           </div>
           <!--option post-->
-          <div class="feed__inputOptions">
-            <div class="inputOption">
-              <i style="color: #70b5f9" class="material-icons"> insert_photo </i>
-              <h4>Photo</h4>
+          <div class="col-md-4" style="margin-top: 10px; ">
+            <label>Upload Image</label>
+            <input type="file" class="form-control" accept="image/*" (change)="onSelectedImage($event)" name="file" ngModel required #i="ngModel">
+<!--            <img  [src]="imageURL" class="container"  alt=""><br>-->
+            <div class="alert alert-success" *ngIf="i.valid">
+              Looks Good
             </div>
-            <div class="inputOption">
-              <i style="color: #e7a33e" class="material-icons"> subscriptions </i>
-              <h4>Video</h4>
+            <div class="alert alert-danger" *ngIf="i.invalid && i.touched">
+              Please Select An Image !
             </div>
-
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#image">Show Image</button>
+            </div>
           </div>
           <div class="col-lg-12">
             <ul>
-              <li><button class="active" type="submit" value="post" (click)="onAddPost(description)">Post</button></li>
+              <li><button class="active" type="submit" value="post" (click)="onAddPost()">Post</button></li>
               <li><a href="/home" title="">Cancel</a></li>
             </ul>
           </div>
